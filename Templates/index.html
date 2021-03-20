@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Palace {% endblock %}
+
+{% block body %}
+    <!-- Three columns of text below the carousel -->
+      <div class="d-flex align-items-centre">
+        {% for row in records %}
+        <div class="card" style="width: 18rem;">
+          <img src="https://loremflickr.com/320/240/Nissan,sentra" class="card-img-top" alt="...">
+          <div class="card-body">
+              <h5 class="card-title">{{row[1]}}</h5>
+              <p class="card-text"> Prix : {{row[2]}}</p>
+              <a href="/detail_produit?productCode={{row[0]}}" class="btn btn-primary">Description</a>
+          </div>
+        </div>
+        {% endfor %}<!-- /.col-lg-4 -->
+      </div>
+
+  <!-- /.row -->
+    <hr class="featurette-divider">
+
+    <!-- START THE FEATURETTES -->
+
+
+    <h1>Categories</h1>
+    <div class="row">
+      {% for cat in categorie %}
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{cat[0]}}</h5>
+            <p class="card-text">{{cat[1]}}</p>
+            <a href="/detail_line?productLine={{cat[0]}}" class="btn btn-primary">Détail de categorie</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+{% endblock %}

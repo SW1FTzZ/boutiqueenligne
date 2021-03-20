@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+<head>
+    {% block title %}{% endblock%}
+</head>
+<body>
+    {% block titlepage %} Détail de {{productLine}} {% endblock %}
+    {% block body %}
+    {% if not state.valid %}
+            <h1> Erreur </h1>
+            <h4>{{ state.message }}</h4>
+    {% endif %}
+    {% if  state.valid %}
+    <table class="table caption-top">
+      <thead>
+        <tr>
+          <th scope="col">Categorie</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Description</th>
+          <th scope="col">Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{productLine}}</td>
+          <td>{{state.produit.productNom}}</td>
+          <td>{{state.produit.productDescription}}</td>
+          <td><img src="https://loremflickr.com/320/240/nissan,sentra"></td>
+        </tr>
+      </tbody>
+    </table>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+<head>
+    {% block title %} Détails de Produits {% endblock%}
+</head>
+<body>
+    {% block titlepage %} Détails de produit {{state.produit.productName}} {% endblock %}
+    {% block body %}
+        {% if not state.valid %}
+            <h1> Erreur </h1>
+            <h4>{{ state.message }}</h4>
+        {% endif %}
+        {% if state.valid %}
+        <div>
+          <img src="https://loremflickr.com/320/240/nissan,sentra">
+        </div>
+        <div class="mb-3">
+          <label for="Code" class="form-label">Code</label>
+          <input type="text" class="form-control" id="Code" value="{{productCode}}">
+        </div>
+        <div class="mb-3">
+          <label for="Nom" class="form-label">Nom</label>
+          <input type="text" class="form-control" id="Nom" value="{{state.produit.productName}}">
+        </div>
+        <div class="mb-3">
+          <label for="Line" class="form-label">Line</label>
+          <input type="text" class="form-control" id="Line" value="{{state.produit.productLine}}">
+        </div>
+        <div class="mb-3">
+          <label for="Scale" class="form-label">Scale</label>
+          <input type="text" class="form-control" id="Scale" value="{{state.produit.productScale}}">
+        </div>
+        <div class="mb-3">
+          <label for="Vendor" class="form-label">Vendor</label>
+          <input type="text" class="form-control" id="Vendor" value="{{state.produit.productVendor}}">
+        </div>
+        <div class="mb-3">
+          <label for="Description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="Description" value="{{state.produit.productDescription}}">
+        </div>
+        <div class="mb-3">
+          <label for="Quantite" class="form-label">Quantite</label>
+          <input type="text" class="form-control" id="Quantite" value="{{state.produit.quantityInStock}}">
+        </div>
+        <div class="mb-3">
+          <label for="buyPrice" class="form-label">Prix de vente</label>
+          <input type="text" class="form-control" id="buyPrice" value="{{state.produit.buyPrice}}">
+        </div>
+        <div class="mb-3">
+          <label for="MSRP" class="form-label">Prix de d'achat</label>
+          <input type="text" class="form-control" id="MSRP" value="{{state.produit.MSRP}}">
+        </div>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>

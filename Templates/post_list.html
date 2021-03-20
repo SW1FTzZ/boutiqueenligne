@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+<head>
+    {% block title %}{% endblock%}
+</head>
+<body>
+    {% block titlepage %} Table de recherche {% endblock %}
+    {% block body %}
+    <div>
+        <form action="{{ url_for('post_route') }}?page={{page - 1}}" method="post">
+            <input type="hidden" name="keyword" value="{{keyword}}">
+            <input type="submit" value=" < Précédent ">
+        </form>
+        <form action="{{ url_for('post_route') }}?page={{page + 1}}" method="post">
+            <input type="hidden" name="keyword" value="{{keyword}}">
+            <input type="submit" value=" Suivant > ">
+        </form>
+    </div>
+    <table class="table caption-top">
+      <thead>
+        <tr>
+          <th scope="col">Titre</th>
+          <th scope="col"><a href="#">Prix</a></th>
+          <th scope="col">Description</th>
+          <th scope="col">Image</th>
+          <th scope="col">Lien</th>
+        </tr>
+      </thead>
+        {% for row in records %}
+      <tbody>
+        <tr>
+          <td>{{row[1]}}</td>
+          <td>{{row[2]}}</td>
+          <td>{{row[3]}}</td>
+          <td><img src="https://loremflickr.com/320/240/nissan,sentra"></td>
+          <td><a href="/detail_produit?productCode={{row[0]}}">Description</a></td>
+        </tr>
+      </tbody>
+        {% endfor %}
+    </table>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+<head>
+    {% block title %} Ajout Produit {% endblock%}
+</head>
+<body>
+    {% block titlepage %} Ajout Produit {% endblock %}
+    {% block body %}
+    <form action="">
+         <div>
+             <label for="name"> Nom </label>
+             <input required type="text" id="name" name="name" placeholder="Vuillez sassir le nom" pattern="[A-Za-z]{3,50}">
+             <div class="requirements">
+                 Entre 3 et 50 caractères
+             </div>
+         </div>
+        <div>
+             <label for="code"> Code </label>
+             <input required type="text" id="code" name="code" placeholder="Vuillez sassir le nom" pattern="[A-Za-z]{8,8}">
+             <div class="requirements">
+                 Exactement 8 caractères
+             </div>
+         </div>
+        <div>
+             <label for="line"> Ligne </label>
+             <input required type="text" id="line" name="line" placeholder="Vuillez sassir le nom" pattern="[A-Za-z]{3,50}">
+             <div class="requirements">
+                 Une ligne produit valide
+             </div>
+         </div>
+        <div>
+             <label for="scale"> Scale </label>
+             <input required type="text" id="scale" name="scale" placeholder="Vuillez sassir le nom" pattern="[A-Za-z]{3,50}">
+             <div class="requirements">
+                 Parmi:1:10,1:12,1:18,1:72,1:24,1:32,1:50,1:700
+             </div>
+         </div>
+        <div>
+             <label for="vendor"> Vendor </label>
+             <input required type="text" id="vendor" name="vendor" placeholder="Vuillez sassir le nom" pattern="[A-Za-z]{3,150}">
+             <div class="requirements">
+                 Entre 3 et 150 caractères
+             </div>
+         </div>
+        <div>
+             <label for="Description"> Description </label>
+             <input required type="text" id="Description" name="Description" placeholder="Vuillez sassir le nom" pattern="[A-Za-z]{3,120}">
+             <div class="requirements">
+                 Entre 3 et 200 caractères
+             </div>
+         </div>
+        <div>
+             <label for="buyPrice"> Prix de vente </label>
+             <input required type="text" id="buyPrice" name="buyPrice" placeholder="Vuillez sassir le nom" pattern="[1-9]">
+             <div class="requirements">
+                 Entier strictement positif>0
+             </div>
+         </div>
+        <div>
+             <label for="MSRP"> Prix d'Achat </label>
+             <input required type="text" id="MSRP" name="MSRP" placeholder="Vuillez sassir le nom" pattern="[1-9]\d}">
+             <div class="requirements">
+                 Entier strictement positif>0
+             </div>
+         </div>
+        <div>
+             <label for="Quantite"> Quantite </label>
+             <input required type="text" id="Quantite" name="Quantite" placeholder="Vuillez sassir le nom" pattern="[0-9]">
+             <div class="requirements">
+                 Entier positif ou nul
+             </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+    {% endblock %}
+</body>
+</html>
