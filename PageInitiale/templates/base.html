@@ -29,8 +29,8 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../static/carousel.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/styles.css">
+    <link href="../../static/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/styles.css">
   </head>
   <body>
 
@@ -53,7 +53,10 @@
             <a class="nav-link" href="#">Ajout categorie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Payment</a>
+            <a class="nav-link" href="/auth">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/achat">Payment</a>
           </li>
         </ul>
         <form class="d-flex" action="{{ url_for('post_route') }}" method="post">

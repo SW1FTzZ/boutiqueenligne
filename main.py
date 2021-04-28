@@ -1,12 +1,10 @@
-from flask import Flask,render_template,request
-from corporation import recuperation_base,details_produits,rechreche
-
+from flask import Flask,render_template,request,blueprints
+from corporation import details_produits,rechreche
+from PageInitiale.recuperation_base import index
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html', records = recuperation_base.recuperation_produit(), categorie = recuperation_base.recuperation_categories())
+app.register_blueprint(index)
 
 @app.route('/recherhce', methods=['POST'])
 def post_route():
@@ -36,5 +34,12 @@ def base():
 def ajout():
     return render_template('ajoutProduit.html')
 
+@app.route('/achat')
+def achat():
+    return render_template('achat.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 if __name__ == "__main__":
     app.run(debug=True)

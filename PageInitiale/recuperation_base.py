@@ -1,7 +1,9 @@
 from corporation import base_de_donnes
+from flask import  blueprints,render_template,request
 
+index = blueprints('index',__name__, teplate_folder = 'templates', url_prefix='/index' )
 
-
+@index.route('/')
 def recuperation_produit():
     try:
         connection = base_de_donnes.connection_Base()
@@ -34,3 +36,6 @@ def recuperation_categories():
         if connection.is_connected():
             connection.close()
             print("MySQL connection is closed")
+
+    return render_template('index.html', records=recuperation_produit(),
+                           categorie=recuperation_categories())
